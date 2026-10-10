@@ -51,3 +51,11 @@ Reviewed October 10, 2026:
 ## Validation
 
 `npm test` runs five numerical tests covering the formula, ideal and inefficient GPU scaling, overhead, epochs, optimizer memory and invalid inputs. The production build and Chromium smoke checks cover model selection, price updates, reset, token inputs, JSON export, methodology navigation and mobile overflow.
+
+## Self-contained HTML edition
+
+```sh
+npm run build:standalone
+```
+
+Open `dist/compute.html` directly in a browser. It bundles React, icons, styles and calculations into one file and works offline, with no server or installation for the viewer. External reference links still require Internet access. This same file can be uploaded to an HTML-capable viewer or static host; embedding support depends on the viewer.
