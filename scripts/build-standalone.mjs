@@ -7,6 +7,6 @@ const style=html.match(/<link\b[^>]*href="([^"]+\.css)"[^>]*>/);
 if(!script||!style)throw new Error('Missing built JavaScript or CSS. Run npm run build first.');
 const js=(await readFile(resolve(root,script[1].replace(/^\//,'')),'utf8')).replace(/<\/script/gi,'<\\/script');
 const css=await readFile(resolve(root,style[1].replace(/^\//,'')),'utf8');
-html=html.replace(script[0],`<script type="module">${js}</script>`).replace(style[0],`<style>${css}</style>`);
+html=html.replace(script[0],()=>`<script type="module">${js}</script>`).replace(style[0],()=>`<style>${css}</style>`);
 await writeFile(resolve(root,'compute.html'),html);
 console.log('Created dist/compute.html — self-contained, offline-capable app.');
